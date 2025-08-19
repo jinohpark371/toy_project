@@ -40,3 +40,5 @@ out/
 *.mv.db
 *.trace.db
 *.h2.db
+
+/data
