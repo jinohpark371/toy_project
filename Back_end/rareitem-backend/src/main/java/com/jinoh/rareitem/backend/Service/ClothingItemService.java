@@ -2,18 +2,16 @@ package com.jinoh.rareitem.backend.Service;
 
 import com.jinoh.rareitem.backend.domain.ClothingItem;
 import com.jinoh.rareitem.backend.repository.ClothingItemRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ClothingItemService {
 
     private final ClothingItemRepository repository;
-
-    public ClothingItemService(ClothingItemRepository repository) {
-        this.repository = repository;
-    }
 
     public List<ClothingItem> getAllItems() {
         return repository.findAll();

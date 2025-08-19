@@ -17,7 +17,7 @@ public class ClothingItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
+    private String name;
     private int price;
     private String imageUrl;
 
