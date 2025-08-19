@@ -2,6 +2,7 @@ package com.jinoh.rareitem.backend.Service;
 
 import com.jinoh.rareitem.backend.domain.ClothingItem;
 import com.jinoh.rareitem.backend.repository.ClothingItemRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +26,10 @@ public class ClothingItemService {
         return repository.findById(id).orElseThrow();
     }
 
+    @Transactional
     public ClothingItem voteItem(Long id) {
         ClothingItem item = repository.findById(id).orElseThrow();
         item.setRarityPercent(item.getRarityPercent() + 1); // 희소성 +1
-        return repository.save(item);
+        return item;
     }
 }

@@ -1,12 +1,12 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:file:./data/testdb   # 프로젝트 경로 밑에 data/testdb.mv.db 로 저장됨
     driver-class-name: org.h2.Driver
     username: sa
     password:
   jpa:
     hibernate:
-      ddl-auto: update   # 개발 단계에서는 update, 운영은 validate/recreate 권장
+      ddl-auto: update   # create면 실행 때마다 테이블 다 날아감. update 권장
     show-sql: true
     properties:
       hibernate:
