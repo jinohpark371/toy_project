@@ -10,22 +10,26 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class ClothingItemService {
+public class ClothingItemService implements ItemService<ClothingItem>{
 
     private final ClothingItemRepository repository;
 
+    @Override
     public List<ClothingItem> getAllItems() {
         return repository.findAll();
     }
 
+    @Override
     public ClothingItem createItem(ClothingItem item) {
         return repository.save(item);
     }
 
+    @Override
     public ClothingItem getItem(Long id) {
         return repository.findById(id).orElseThrow();
     }
 
+    @Override
     @Transactional
     public ClothingItem voteItem(Long id) {
         ClothingItem item = repository.findById(id).orElseThrow();
